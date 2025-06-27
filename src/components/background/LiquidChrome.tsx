@@ -1,14 +1,14 @@
 import { useRef, useEffect } from "react";
 import { Renderer, Program, Mesh, Triangle } from "ogl";
+import type { HTMLAttributes } from "react";
 
-interface LiquidChromeProps {
+interface LiquidChromeProps extends HTMLAttributes<HTMLDivElement> {
   baseColor?: [number, number, number];
   speed?: number;
   amplitude?: number;
   frequencyX?: number;
   frequencyY?: number;
   interactive?: boolean;
-  [key: string]: any;
 }
 
 const LiquidChrome = ({
