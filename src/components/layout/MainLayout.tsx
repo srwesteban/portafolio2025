@@ -77,7 +77,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         <Header />
         <WhatsAppButton />
 
-        <main className="pt-20 sm: lg:pt-0">{children}</main>
+        <main className="pt-12 sm: lg:pt-0">{children}</main>
       </div>
     </div>
   );

@@ -47,16 +47,19 @@ const Header = () => {
             href="/"
             className="text-lg sm:text-xl font-bold rounded px-2 py-1 bg-[#5234FF] text-white"
           >
-            <RotatingText
-              texts={t("rotatingText", { returnObjects: true }) as string[]}
-              staggerFrom="last"
-              staggerDuration={0.03}
-              rotationInterval={2500}
+            <motion.div
               initial={{ y: "50%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "-60%", opacity: 0 }}
-              className="text-sm sm:font-orbitron md:text-sm"
-            />
+            >
+              <RotatingText
+                texts={t("rotatingText", { returnObjects: true }) as string[]}
+                staggerFrom="last"
+                staggerDuration={0.03}
+                rotationInterval={2500}
+                className="text-sm sm:font-orbitron md:text-sm"
+              />
+            </motion.div>
           </Link>
         </div>
 

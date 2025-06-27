@@ -20,28 +20,14 @@ export default function PersonalCard() {
             alt="me"
             width={350}
             height={350}
-            className="rounded-xl shadow-lg w-[250px] sm:w-[300px] md:w-[350px] h-auto"
+            className="rounded-xl shadow-lg w-[200px] sm:w-[180px] md:w-[350px] h-auto"
             priority
           />
 
           {/* Tarjeta flotante */}
-          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 bg-[#2c365d6c] backdrop-blur-3xl p-3 rounded-xl flex items-center justify-between gap-3 w-[250px] sm:w-[300px] md:w-[350px] text-left shadow-md z-10">
-            <div className="flex items-center gap-2">
-              <Image
-                src="/images/logos/logowe.png"
-                alt="mini"
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p className="text-[10px] text-green-400">Online</p>
-              </div>
-            </div>
-            <button className="text-xs bg-transparent px-3 py-1 rounded-full text-white hover:bg-white/20 transition">
-              Contact Me
-            </button>
-          </div>
+          <button className="absolute -bottom-12 left-1/2 -translate-x-1/2 bg-[#2c365d6c] backdrop-blur-3xl p-3 rounded-xl flex items-center justify-center gap-3 w-[220px] sm:w-[300px] md:w-[350px] text-left shadow-md z-10">
+            <p className="text-[15px] sm:text-[20px] text-green-400">Online</p>
+          </button>
         </div>
       </BackgroundGradient>
     </div>
