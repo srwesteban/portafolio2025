@@ -1,0 +1,29 @@
+{
+  "theme": {
+    "label": "Cambiar tema",
+    "options": {
+      "light": "Claro",
+      "dark": "Oscuro",
+      "red": "Rojo",
+      "blue": "Azul"
+    }
+  },
+
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca",
+    "contact": "Contacto"
+  },
+
+  "about": {
+    "heading": "Bienvenido.",
+    "paragraph": "Creo en la tecnología como una extensión del pensamiento humano, capaz de transformar realidades cuando se escribe con intención. Soy un ingeniero que entiende el código como herramienta, pero también como lenguaje. Un lenguaje que puede narrar ideas, resolver conflictos y conectar a las personas con lo invisible."
+  },
+
+  "rotatingText": [
+    "Ingeniero de Software",
+    "Desarrollador Full-Stack",
+    "Especialista en Java y React",
+    "Código Limpio"
+  ]
+}

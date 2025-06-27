@@ -1,0 +1,29 @@
+{
+  "theme": {
+    "label": "Change theme",
+    "options": {
+      "light": "Light",
+      "dark": "Dark",
+      "red": "Red",
+      "blue": "Blue"
+    }
+  },
+
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+
+  "about": {
+    "heading": "Welcome.",
+    "paragraph": "I see technology as an extension of human thought — capable of reshaping reality when crafted with purpose. I'm an engineer who sees code not just as a tool, but as a language — one that can tell stories, solve problems, and connect people with the unseen.\n\n\n"
+  },
+
+  "rotatingText": [
+    "Software Engineer",
+    "Full-Stack Developer",
+    "Java & React Specialist",
+    "Clean Code"
+  ]
+}
