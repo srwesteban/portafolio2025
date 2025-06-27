@@ -48,7 +48,7 @@ const Header = () => {
             className="text-lg sm:text-xl font-bold rounded px-2 py-1 bg-[#5234FF] text-white"
           >
             <RotatingText
-              texts={t("rotatingText", { returnObjects: true })}
+              texts={t("rotatingText", { returnObjects: true }) as string[]}
               staggerFrom="last"
               staggerDuration={0.03}
               rotationInterval={2500}
