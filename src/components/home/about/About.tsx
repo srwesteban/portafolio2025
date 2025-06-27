@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next";
 import BlurText from "@/components/ui/BlurText";
 import { colorPalettes } from "@/config/colors";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
-import ScrambledText from "@/components/ui/ScrambledText";
 import dynamic from "next/dynamic";
 
 export const About = ({
