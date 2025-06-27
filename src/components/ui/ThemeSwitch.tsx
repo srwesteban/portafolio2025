@@ -7,7 +7,7 @@ import { useEffect, useState, useRef } from "react";
 const themes = ["light", "dark", "red", "blue"] as const;
 
 const ThemeSwitch = () => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   const { t } = useTranslation("common");
 
   const [isClient, setIsClient] = useState(false);

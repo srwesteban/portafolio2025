@@ -5,7 +5,6 @@ import { colorPalettes } from "@/config/colors";
 import Header from "./Header";
 import Squares from "../ui/CanvasStrokeStyle";
 import { Poppins } from "next/font/google";
-import { About } from "../home/about/About";
 import { Orbitron } from "next/font/google";
 import { Press_Start_2P } from "next/font/google";
 import { VT323 } from "next/font/google";
@@ -64,9 +63,6 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                 interactive={false}
               />
             </div>
-
-
-
             <div className="fixed inset-0 z-[-1]">
               <Squares
                 speed={0.4}
