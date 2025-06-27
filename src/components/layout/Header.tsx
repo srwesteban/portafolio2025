@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
@@ -30,13 +31,18 @@ const Header = () => {
   ];
 
   return (
-    <header
-      className={`fixed top-0 z-20 w-full px-4 py-3 backdrop-blur-md border-b bg-transparent`}
-    >
+    <header className="fixed top-0 z-20 w-full px-4 py-3 backdrop-blur-md border-b bg-transparent">
       <nav className="mx-auto max-w-[1800px] flex items-center justify-between">
         {/* Logo + Title */}
         <div className="flex items-center gap-2">
-          <img src="/images/logos/logowe.png" alt="Logo" width="50" />
+          <Image
+            src="/images/logos/logowe.png"
+            alt="Logo"
+            width={50}
+            height={50}
+            className="w-[50px] h-auto"
+            priority
+          />
           <Link
             href="/"
             className="text-lg sm:text-xl font-bold rounded px-2 py-1 bg-[#5234FF] text-white"

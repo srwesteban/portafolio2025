@@ -6,18 +6,24 @@ import BlurText from "@/components/ui/BlurText";
 import { colorPalettes } from "@/config/colors";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 import dynamic from "next/dynamic";
+import { useTheme } from "next-themes";
 
-export const About = ({
-  theme,
-}: {
-  theme: "light" | "dark" | "blue" | "red";
-}) => {
+export const About = () => {
   const { t } = useTranslation("common");
+  const { resolvedTheme } = useTheme();
+
+  // Asegura que el tema sea uno válido
+  const theme =
+    ["light", "dark", "blue", "red"].includes(resolvedTheme || "")
+      ? (resolvedTheme as "light" | "dark" | "blue" | "red")
+      : "dark";
+
   const palette = colorPalettes[theme] || colorPalettes.dark;
 
   const ScrambledText = dynamic(() => import("@/components/ui/ScrambledText"), {
     ssr: false,
   });
+
   return (
     <section className="w-full flex items-center justify-center ">
       <BackgroundGradient className="w-full max-w-screen-xl rounded-xl p-2">
@@ -30,7 +36,7 @@ export const About = ({
           `}
         >
           {/* Título y GIF lado a lado */}
-          <div className=" flex flex-wrap items-start justify-between gap-2 mb-2 sm:gap-8 md:mb-6">
+          <div className="flex flex-wrap items-start justify-between gap-2 mb-2 sm:gap-8 md:mb-6">
             <div className="flex-1 min-w-[220px]">
               <BlurText
                 text={t("about.heading")}
