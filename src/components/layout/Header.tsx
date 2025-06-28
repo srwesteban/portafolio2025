@@ -19,10 +19,6 @@ const Header = () => {
   const [hovered, setHovered] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const { resolvedTheme } = useTheme();
-  const palette =
-    colorPalettes[resolvedTheme as keyof typeof colorPalettes] || colorPalettes.dark;
-
   const navItems = [
     { name: t("nav.home"), path: "/" },
     { name: t("nav.about"), path: "/about" },
