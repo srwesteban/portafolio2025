@@ -9,8 +9,6 @@ import { useTranslation } from "next-i18next";
 import ThemeSwitch from "../ui/ThemeSwitch";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
 import RotatingText from "../ui/RotatingText";
-import { useTheme } from "next-themes";
-import { colorPalettes } from "@/config/colors";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
