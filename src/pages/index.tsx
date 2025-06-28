@@ -1,12 +1,17 @@
 import Hero from "@/components/home/hero/Hero";
+import FullPageSlider from "@/components/ui/FullPageSlider";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen gap-6">
-      <Hero />
-    </main>
+    <FullPageSlider
+      sections={[
+        <Hero key="hero1" />,
+        <Hero key="hero2" />,
+        <Hero key="hero3" />,
+      ]}
+    />
   );
 }
 

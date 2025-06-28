@@ -1,22 +1,20 @@
+"use client";
+
 import { ReactNode, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import LiquidChrome from "@/components/background/LiquidChrome";
 import { colorPalettes } from "@/config/colors";
 import Header from "./Header";
-import Squares from "../ui/CanvasStrokeStyle";
+import Squares from "@/components/ui/CanvasStrokeStyle";
+
+// Tipografías
 import { Poppins } from "next/font/google";
 import { Orbitron } from "next/font/google";
 import { Press_Start_2P } from "next/font/google";
 import { VT323 } from "next/font/google";
 import WhatsAppButton from "@/contact/WhatsAppButton";
 
-
-const pressStart = Press_Start_2P({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-pressstart",
-});
-
+// Cargando fuentes con variables CSS
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -29,6 +27,11 @@ const orbitron = Orbitron({
   variable: "--font-orbitron",
 });
 
+const pressStart = Press_Start_2P({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pressstart",
+});
 
 export const vt323 = VT323({
   subsets: ["latin"],
@@ -36,10 +39,12 @@ export const vt323 = VT323({
   variable: "--font-vt323",
 });
 
+// Props
 interface MainLayoutProps {
   children: ReactNode;
 }
 
+// Componente principal
 const MainLayout = ({ children }: MainLayoutProps) => {
   const { resolvedTheme } = useTheme();
   const palette =
@@ -55,7 +60,8 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <div className={`relative min-h-screen overflow-hidden ${palette.text}`}>
         {isClient && (
           <>
-            <div className="fixed inset-0 -z-10">
+            {/* Fondo líquido animado */}
+            {/* <div className="fixed inset-0 -z-10">
               <LiquidChrome
                 baseColor={palette.baseColor}
                 speed={0.3}
@@ -71,13 +77,16 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                 borderColor="#fff"
                 hoverFillColor="#222"
               />
-            </div>
+            </div> */}
           </>
         )}
+
+        {/* Cabecera y botón flotante */}
         <Header />
         <WhatsAppButton />
 
-        <main className="pt-12 sm: lg:pt-0">{children}</main>
+        {/* Contenido principal */}
+        <main className="">{children}</main>
       </div>
     </div>
   );
