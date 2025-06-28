@@ -60,8 +60,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <div className={`relative min-h-screen overflow-hidden ${palette.text}`}>
         {isClient && (
           <>
-            {/* Fondo líquido animado */}
-            {/* <div className="fixed inset-0 -z-10">
+            <div className="fixed inset-0 -z-10">
               <LiquidChrome
                 baseColor={palette.baseColor}
                 speed={0.3}
@@ -77,7 +76,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                 borderColor="#fff"
                 hoverFillColor="#222"
               />
-            </div> */}
+            </div>
           </>
         )}
 
