@@ -8,7 +8,6 @@ import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import ThemeSwitch from "../ui/ThemeSwitch";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
-import RotatingText from "../ui/RotatingText";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
@@ -36,24 +35,6 @@ const Header = () => {
             className="w-[50px] h-auto"
             priority
           />
-          <Link
-            href="/"
-            className="text-lg sm:text-xl font-bold rounded px-2 py-1 bg-[#5234FF] text-white"
-          >
-            <motion.div
-              initial={{ y: "50%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: "-60%", opacity: 0 }}
-            >
-              <RotatingText
-                texts={t("rotatingText", { returnObjects: true }) as string[]}
-                staggerFrom="last"
-                staggerDuration={0.03}
-                rotationInterval={2500}
-                className="text-sm sm:font-orbitron md:text-sm"
-              />
-            </motion.div>
-          </Link>
         </div>
 
         {/* Desktop Menu */}
