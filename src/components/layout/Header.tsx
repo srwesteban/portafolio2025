@@ -16,18 +16,17 @@ import { Menu, X } from "lucide-react";
 const Header = () => {
   const { t } = useTranslation("common");
   const pathname = usePathname() || "/";
-  const [hovered, setHovered] = useState(pathname);
+  const [hovered, setHovered] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const { resolvedTheme } = useTheme();
   const palette =
-    colorPalettes[resolvedTheme as keyof typeof colorPalettes] ||
-    colorPalettes.dark;
+    colorPalettes[resolvedTheme as keyof typeof colorPalettes] || colorPalettes.dark;
 
   const navItems = [
     { name: t("nav.home"), path: "/" },
-    { name: t("nav.about"), path: "/*" },
-    { name: t("nav.contact"), path: "/**" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   return (
@@ -65,34 +64,30 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
-          <ul className="flex gap-4 text-sm font-medium">
+          <ul className="flex gap-4 text-sm font-medium relative">
             {navItems.map((item) => {
-              const isActive = pathname === item.path;
+              const isActive = pathname.startsWith(item.path);
               const isHovered = hovered === item.path;
 
               return (
                 <li
                   key={item.path}
                   onMouseEnter={() => setHovered(item.path)}
-                  onMouseLeave={() => setHovered(pathname)}
+                  onMouseLeave={() => setHovered(null)}
                   className="relative"
                 >
                   {isHovered && (
                     <motion.div
                       layoutId="hoverBackground"
-                      className={`absolute inset-0 rounded ${palette.hoverBg}`}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20,
-                      }}
+                      className="absolute inset-0 rounded-md bg-white/10"
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     />
                   )}
                   <Link
                     href={item.path}
-                    className={`relative px-4 py-2 z-10 transition ${
+                    className={`relative px-4 py-2 z-10 transition duration-200 hover:text-white ${
                       isActive ? "font-semibold underline" : ""
-                    } ${palette.hoverText}`}
+                    }`}
                   >
                     {item.name}
                   </Link>
@@ -130,7 +125,7 @@ const Header = () => {
                   <Link
                     href={item.path}
                     onClick={() => setMenuOpen(false)}
-                    className={`block px-4 py-2 rounded transition ${palette.hoverBg} ${palette.hoverText}`}
+                    className="block px-4 py-2 rounded transition hover:bg-white/10 hover:text-white"
                   >
                     {item.name}
                   </Link>
