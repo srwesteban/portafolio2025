@@ -13,6 +13,11 @@ export interface ScrambledTextProps {
   children: React.ReactNode;
 }
 
+type SplitResult = {
+  chars: HTMLElement[];
+  revert: () => void;
+};
+
 const ScrambledText: React.FC<ScrambledTextProps> = ({
   radius = 100,
   duration = 1.2,
@@ -27,10 +32,7 @@ const ScrambledText: React.FC<ScrambledTextProps> = ({
   useEffect(() => {
     if (!rootRef.current) return;
 
-    let split: {
-      chars: HTMLElement[];
-      revert: () => void;
-    };
+    let split: SplitResult;
 
     Promise.all([
       import("gsap/SplitText"),
@@ -45,7 +47,7 @@ const ScrambledText: React.FC<ScrambledTextProps> = ({
         type: "words,chars",
         wordsClass: "inline-block whitespace-nowrap",
         charsClass: "inline-block will-change-transform",
-      }) as typeof split;
+      }) as unknown as SplitResult;
 
       split.chars.forEach((c: HTMLElement) => {
         gsap.set(c, { attr: { "data-content": c.innerHTML } });
