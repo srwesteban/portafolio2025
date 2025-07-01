@@ -6,28 +6,45 @@ import Image from "next/image";
 
 export default function PersonalCard() {
   return (
-    <div className="flex justify-center items-center min-h-[30vh] sm:min-h-screen p-0 sm:p-4">
-      <BackgroundGradient className="max-w-sm w-full text-center">
-        <h1 className="sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#A8AEE7] font-poppins">
-          William D. Esteban Mora
-        </h1>
-        <p className="text-sm text-zinc-400 mb-4 sm:mb-10">Software Engineer</p>
+    <div className="w-full h-full flex items-center justify-center p-2 sm:p-4">
+      <BackgroundGradient className="w-full h-full flex flex-col justify-between items-center text-center">
+        {/* Nombre y título */}
+        <div>
+          <h1 className="text-xs sm:text-[clamp(1rem,2vw,1.5rem)] font-bold text-[#A8AEE7] font-poppins leading-tight">
+            William D. Esteban Mora
+          </h1>
+          <p className="text-[clamp(0.75rem,1.5vw,1rem)] text-zinc-400 mb-4">
+            Software Engineer
+          </p>
+        </div>
 
-        {/* Imagen principal */}
-        <div className="relative w-fit mx-auto mb-8">
+        {/* Imagen + botón */}
+        <div className="relative w-fit mx-auto flex flex-col items-center">
           <Image
             src="/images/avatar/avatarCentrado.png"
             alt="me"
-            width={350}
+            width={300}
             height={350}
-            className="rounded-xl shadow-lg w-[200px] sm:w-[180px] md:w-[350px] h-auto"
+            className="rounded-xl shadow-lg w-[140px] sm:w-[180px] md:w-[260px] h-auto transition-all"
             priority
           />
 
-          {/* Tarjeta flotante */}
-          <button className="absolute -bottom-12 left-1/2 -translate-x-1/2 bg-[#2c365d6c] backdrop-blur-3xl p-3 rounded-xl flex items-center justify-center gap-3 w-[220px] sm:w-[300px] md:w-[350px] text-left shadow-md z-10">
-            <p className="text-[15px] sm:text-[20px] text-green-400">Online</p>
-
+          {/* Botón contenido y "flotante visualmente" */}
+          <button
+            className="
+              -mt-6
+              bg-[#2c365d6c] backdrop-blur-3xl
+              px-[clamp(0.75rem,2vw,1.5rem)] py-[clamp(0.5rem,1.2vw,0.9rem)]
+              rounded-xl shadow-md
+              flex items-center justify-center gap-[clamp(0.25rem,1vw,0.75rem)]
+              w-[clamp(160px,50vw,260px)]
+              text-center
+              z-10
+            "
+          >
+            <p className="text-[clamp(0.75rem,1vw,1.125rem)] text-green-400">
+              Online
+            </p>
           </button>
         </div>
       </BackgroundGradient>

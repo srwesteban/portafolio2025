@@ -5,7 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function Home() {
   return (
-    <FullPageSlider
+    <FullPageSlider 
       sections={[
         <Hero key="hero1" />,
         <Hero key="hero2" />,

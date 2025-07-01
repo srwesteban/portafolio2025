@@ -17,6 +17,8 @@ export const BackgroundGradient = ({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handlePointerMove = (e: React.PointerEvent) => {
+    if (window.innerWidth < 1024) return;
+
     const card = cardRef.current;
     if (!card) return;
 
@@ -26,7 +28,7 @@ export const BackgroundGradient = ({
     const px = x / rect.width;
     const py = y / rect.height;
 
-    const rotateX = -(py - 1) * 10; // Más sutil
+    const rotateX = -(py - 1) * 10;
     const rotateY = (px - 1) * 10;
 
     card.style.setProperty("--rotate-x", `${rotateY}deg`);
@@ -34,6 +36,7 @@ export const BackgroundGradient = ({
   };
 
   const handlePointerLeave = () => {
+    if (window.innerWidth < 1024) return;
     const card = cardRef.current;
     if (!card) return;
     card.style.setProperty("--rotate-x", `0deg`);
@@ -41,25 +44,21 @@ export const BackgroundGradient = ({
   };
 
   const variants = {
-    initial: {
-      backgroundPosition: "0 50%",
-    },
-    animate: {
-      backgroundPosition: ["0 50%", "100% 50%", "0 50%"],
-    },
+    initial: { backgroundPosition: "0 50%" },
+    animate: { backgroundPosition: ["0 50%", "100% 50%", "0 50%"] },
   };
 
   return (
     <div
       ref={cardRef}
       className={cn(
-        "relative group p-[2px] rounded-[28px]",
+        "relative p-[2px] rounded-3xl inline-block",
         containerClassName
       )}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       style={{
-        transform: `rotateX(var(--rotate-y)) rotateY(var(--rotate-x))`,
+        transform: `rotateX(var(--rotate-y, 0deg)) rotateY(var(--rotate-x, 0deg))`,
         transformStyle: "preserve-3d",
         willChange: "transform",
         transition: "transform 0.2s ease-out",
@@ -68,7 +67,7 @@ export const BackgroundGradient = ({
           "0 0 20px rgba(124, 58, 237, 0.2), 0 0 30px rgba(59, 130, 246, 0.2)",
       }}
     >
-      {/* fondo animado blur - capa inferior */}
+      {/* Blur animado - capa inferior */}
       <motion.div
         variants={animate ? variants : undefined}
         initial={animate ? "initial" : undefined}
@@ -80,12 +79,12 @@ export const BackgroundGradient = ({
         }
         style={{ backgroundSize: animate ? "400% 400%" : undefined }}
         className={cn(
-          "absolute inset-0 rounded-[26px] z-[1] opacity-60 blur-2xl transition duration-500 will-change-transform",
+          "absolute inset-0 rounded-[26px] z-[1] opacity-60 blur-2xl pointer-events-none",
           "bg-[radial-gradient(circle_farthest-side_at_0_100%,#38bdf8,transparent),radial-gradient(circle_farthest-side_at_100%_0,#a78bfa,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#f472b6,transparent),radial-gradient(circle_farthest-side_at_0_0,#22d3ee,#0f172a)]"
         )}
       />
 
-      {/* fondo animado blur - capa superior */}
+      {/* Blur animado - capa superior */}
       <motion.div
         variants={animate ? variants : undefined}
         initial={animate ? "initial" : undefined}
@@ -97,15 +96,17 @@ export const BackgroundGradient = ({
         }
         style={{ backgroundSize: animate ? "400% 400%" : undefined }}
         className={cn(
-          "absolute inset-0 rounded-[26px] z-[1] will-change-transform",
+          "absolute inset-0 rounded-[26px] z-[1] pointer-events-none",
           "bg-[radial-gradient(circle_farthest-side_at_0_100%,#38bdf8,transparent),radial-gradient(circle_farthest-side_at_100%_0,#a78bfa,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#f472b6,transparent),radial-gradient(circle_farthest-side_at_0_0,#22d3ee,#0f172a)]"
         )}
       />
 
-      {/* contenido */}
+      {/* contenido real */}
       <div
         className={cn(
-          "relative z-10 rounded-[26px] bg-[#0f172a]/80 backdrop-blur-md p-6 sm:p-10",
+          "relative z-10 rounded-[26px] bg-[#0f172a]/80 backdrop-blur-md",
+          "flex flex-col justify-between items-center",
+          "p-4 sm:p-6 md:p-8 lg:p-10",
           className
         )}
       >
