@@ -85,7 +85,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         <WhatsAppButton />
 
         {/* Contenido principal */}
-        <main className=" mt-10">{children}</main>
+        <main className=" mt-10 sm:mt-0">{children}</main>
       </div>
     </div>
   );
