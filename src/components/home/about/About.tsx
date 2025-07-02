@@ -50,7 +50,7 @@ export const About = () => {
               <iframe
                 src="https://tenor.com/embed/18245534548411146696"
                 title="Kitty Inu Cat Pixel GIF"
-                className="w-full aspect-square rounded-lg shadow-md border border-gray-300 dark:border-gray-700"
+                className="pointer-events-none w-full aspect-square rounded-lg shadow-md border border-gray-300 dark:border-gray-700"
                 frameBorder="0"
                 allowFullScreen
               />
