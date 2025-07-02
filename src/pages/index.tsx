@@ -1,6 +1,6 @@
 import Hero from "@/components/home/hero/Hero";
 import FullPageSlider from "@/components/ui/FullPageSlider";
-import Studies from "@/studies/studies";
+import { Degrees } from "@/studies/Degrees";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -9,7 +9,7 @@ export default function Home() {
     <FullPageSlider
       sections={[
         <Hero key="hero1" />,
-        <Studies key="hero2" />,
+        <Degrees key="hero2" />,
         <Hero key="hero3" />,
       ]}
     />

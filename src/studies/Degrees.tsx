@@ -1,10 +1,10 @@
-"use client";
+import PersonalCard from '@/components/home/hero/PersonalCard'
+import React from 'react'
 
-import PersonalCard from "@/components/background/PersonalCard";
-
-export default function Studies() {
+export const Degrees = () => {
   return (
-    <section className="w-full sm:h-screen flex justify-center items-center p-4 sm:pt-0">
+    <div>
+      <section className="w-full sm:h-screen flex justify-center items-center p-4 sm:pt-0">
       <div className="w-full max-w-[1800px] h-full flex flex-col-reverse lg:flex-row  gap-0 sm:gap-6">
         {/* About primero en desktop */}
         <div className="w-full lg:w-[80%] h-[80%] lg:h-full">
@@ -15,5 +15,6 @@ export default function Studies() {
         </div>
       </div>
     </section>
-  );
+    </div>
+  )
 }

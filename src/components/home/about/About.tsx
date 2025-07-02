@@ -25,15 +25,15 @@ export const About = () => {
   });
 
   return (
-    <section className="w-full h-full flex items-center justify-center p-2 sm:p-4">
-      <BackgroundGradient className="w-full h-full flex flex-col justify-between items-center text-center">
+    <section className="w-full h-full flex items-center justify-center">
+      <BackgroundGradient>
         <div
           className={`
-            w-full h-full flex flex-col justify-between rounded-xl border
-            px-3 sm:px-8 md:px-12 lg:px-20 py-4 sm:py-6 md:py-8
-            backdrop-blur-md shadow-lg transition-all duration-300
-            ${palette.bg} ${palette.border} ${palette.text}
-          `}
+        w-full h-[400px] sm:h-[500px] flex flex-col justify-between rounded-xl border
+        px-4 sm:px-8 md:px-12 lg:px-20 py-6 sm:py-8 md:py-10
+        backdrop-blur-md shadow-lg transition-all duration-300
+        ${palette.bg} ${palette.border} ${palette.text}
+      `}
         >
           {/* Encabezado */}
           <div className="flex flex-wrap items-start justify-between gap-2 sm:gap-8">

@@ -52,7 +52,7 @@ export const BackgroundGradient = ({
     <div
       ref={cardRef}
       className={cn(
-        "relative p-[2px] rounded-3xl inline-block",
+        "relative w-full p-[2px] rounded-3xl block", // ⬅️ fix aquí
         containerClassName
       )}
       onPointerMove={handlePointerMove}
